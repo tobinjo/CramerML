@@ -1,0 +1,5 @@
+http://stackoverflow.com/questions/22255655/how-to-attach-active-excel-workbook-to-an-email
+
+http://ccm.net/forum/affich-106434-automation-of-running-excel-macros
+
+https://www.tensorflow.org/versions/r0.10/tutorials/mnist/pros/index.html
