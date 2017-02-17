@@ -1,16 +1,19 @@
 from openpyxl import load_workbook
 wb2 = load_workbook('CramerPicks.xlsx')
-wb2.active = 7
+wb2.active = 8
 ws = wb2.active
+print ws.title
 biglist = []
 jimschoices = []
 rowval = 2
 
-for row in ws.iter_rows('D2:R2150'):
+for row in ws.iter_rows('D2:R3268'):
+    #print rowval
     rowlist = []
     good = 1
     zeros = [0, 0, 0, 0, 0]
     choice = ws.cell(row = rowval, column = 3)
+    #print choice.value
     zeros[choice.value-1] = 1
     for cell in row:
         if cell.value == '#N/A':
@@ -23,10 +26,10 @@ for row in ws.iter_rows('D2:R2150'):
 
 import numpy as np
 import tensorflow as tf
-Xtr = np.asanyarray(biglist[1:2000])
-Ytr = np.asanyarray(jimschoices[1:2000])
-Xte = np.asanyarray(biglist[2001:])
-Yte = np.asanyarray(jimschoices[2001:])
+Xtr = np.asanyarray(biglist[1:2499])
+Ytr = np.asanyarray(jimschoices[1:2499])
+Xte = np.asanyarray(biglist[2500:])
+Yte = np.asanyarray(jimschoices[2500:])
 
 x = tf.placeholder(tf.float32, [None, 15])
 W = tf.Variable(tf.zeros([15, 5]))
